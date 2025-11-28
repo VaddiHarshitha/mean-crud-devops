@@ -1,7 +1,10 @@
 const express = require("express");
-//const cors = require("cors");
+const cors = require("cors");
 
 const app = express();
+
+// Enable CORS for all origins
+app.use(cors());
 
 // parse requests of content-type - application/json
 app.use(express.json());
@@ -9,7 +12,16 @@ app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
+// Set mongoose options
+const mongoose = require("mongoose");
+mongoose.set('strictQuery', false);
+
+// Database connection
 const db = require("./app/models");
+
+console.log("Attempting to connect to MongoDB...");
+console.log("Connection URL:", db.url ? db.url.replace(/:[^:@]+@/, ':****@') : 'undefined');
+
 db.mongoose
   .connect(db.url, {
     useNewUrlParser: true,
@@ -20,6 +32,7 @@ db.mongoose
   })
   .catch(err => {
     console.log("Cannot connect to the database!", err);
+    console.error(err);
     process.exit();
   });
 
