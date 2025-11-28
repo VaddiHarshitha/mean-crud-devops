@@ -131,6 +131,73 @@ docker-compose up -d
 - Environment variables for sensitive data
 - Private SSH key for deployment
 
+## 📸 Project Screenshots
+
+### 1. Live Application
+![Application Running](screenshots/Application-UI-home.png)
+
+The application is live and accessible at http://44.211.92.66
+
+---
+
+### 2. Create Tutorial
+![Create Tutorial Form](screenshots/create-tutorial.png)
+
+
+---
+
+### 3. Publish and Update
+![Publish and Update](screenshots/publish-update.png)
+
+
+---
+
+### 4. CI/CD Pipeline - GitHub Actions
+![GitHub Actions Success](screenshots/github-actions-flow.png)
+![GitHub Actions Success](screenshots/github-actions-2.png)
+
+Automated CI/CD pipeline builds and deploys on every push to main branch.
+
+---
+
+### 5. Docker Containers
+![Docker Containers Running](screenshots/docker-containers.png)
+
+All services running in Docker containers:
+- MongoDB
+- Backend (Node.js)
+- Frontend (Angular)
+- Nginx Proxy
+
+---
+
+### 6. Docker Hub
+![Docker Hub mean-frontend](screenshots/mean-frontend.png)
+![Docker Hub mean-backend](screenshots/mean-backend.png)
+
+Docker images published to Docker Hub:
+- harshitha28/mean-backend:latest
+- harshitha28/mean-frontend:latest
+
+---
+
+---
+
+### 7. MongoDB Data
+![MongoDB Tutorial Collection](screenshots/mongodb-collections.png)
+
+Tutorial documents stored in MongoDB with proper schema.
+
+---
+---
+
+### 10. API Testing
+![API Endpoint Test](screenshots/curl-working.png)
+
+REST API endpoints tested and working correctly.
+
+---
+
 ### Contributors
 - Harshitha Vaddi
 
