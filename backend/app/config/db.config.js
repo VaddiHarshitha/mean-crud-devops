@@ -1,3 +1,7 @@
 module.exports = {
-  url: "mongodb://localhost:27017/dd_db"
+  HOST: process.env.DB_HOST || "localhost",
+  PORT: process.env.DB_PORT || 27017,
+  USER: process.env.DB_USER || "root",
+  PASSWORD: process.env.DB_PASSWORD || "rootpassword",
+  DB: process.env.DB_NAME || "mean_crud_db"
 };
