@@ -27,6 +27,8 @@ services:
       - mongodb
     networks:
       - mean-network
+    ports:
+      - "8080:8080"
 
   frontend:
     image: ${DOCKERHUB_USERNAME}/mean-frontend:latest
