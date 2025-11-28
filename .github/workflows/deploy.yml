@@ -3,8 +3,6 @@ name: CI/CD Pipeline
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 env:
   DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -49,6 +47,7 @@ jobs:
   deploy:
     needs: build-and-push
     runs-on: ubuntu-latest
+    if: github.event_name == 'push'
     
     steps:
     - name: Deploy to VM
@@ -58,8 +57,11 @@ jobs:
         username: ubuntu
         key: ${{ secrets.VM_SSH_KEY }}
         script: |
-          cd /home/ubuntu/mean-app
+          cd mean-crud-devops
+          git pull origin main
+          echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
           docker-compose pull
           docker-compose down
           docker-compose up -d
+          docker system prune -f
           docker system prune -f
