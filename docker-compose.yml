@@ -6,8 +6,8 @@ services:
     container_name: mongodb
     restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin123
     volumes:
       - mongodb_data:/data/db
     networks:
@@ -20,8 +20,8 @@ services:
     environment:
       DB_HOST: mongodb
       DB_PORT: 27017
-      DB_USER: root
-      DB_PASSWORD: ${MONGO_PASSWORD}
+      DB_USER: admin
+      DB_PASSWORD: admin123
       DB_NAME: mean_crud_db
     depends_on:
       - mongodb
