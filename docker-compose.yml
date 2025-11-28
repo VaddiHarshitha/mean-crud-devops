@@ -7,37 +7,31 @@ services:
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: rootpassword
-    ports:
-      - "27017:27017"
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
     volumes:
       - mongodb_data:/data/db
     networks:
       - mean-network
 
   backend:
-    build: ./backend
+    image: ${DOCKERHUB_USERNAME}/mean-backend:latest
     container_name: backend
     restart: always
     environment:
       DB_HOST: mongodb
       DB_PORT: 27017
       DB_USER: root
-      DB_PASSWORD: rootpassword
+      DB_PASSWORD: ${MONGO_PASSWORD}
       DB_NAME: mean_crud_db
-    ports:
-      - "8080:8080"
     depends_on:
       - mongodb
     networks:
       - mean-network
 
   frontend:
-    build: ./frontend
+    image: ${DOCKERHUB_USERNAME}/mean-frontend:latest
     container_name: frontend
     restart: always
-    ports:
-      - "8081:80"
     depends_on:
       - backend
     networks:
