@@ -131,7 +131,7 @@ docker-compose up -d
 - Environment variables for sensitive data
 - Private SSH key for deployment
 
-## 📸 Project Screenshots
+## Project Screenshots
 
 ### 1. Live Application
 ![Application Running](screenshots/Application-UI-home.png)
@@ -191,7 +191,7 @@ Tutorial documents stored in MongoDB with proper schema.
 ---
 ---
 
-### 10. API Testing
+### 8. API Testing
 ![API Endpoint Test](screenshots/curl-working.png)
 
 REST API endpoints tested and working correctly.
