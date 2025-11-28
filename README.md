@@ -1,4 +1,4 @@
-## mean-crud-devops-tutorial
+## Mean-crud-devops-tutorial
 
 ### Live Deployment
 - **Application URL**: http://44.211.92.66
